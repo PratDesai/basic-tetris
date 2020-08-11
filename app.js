@@ -123,25 +123,25 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(spliceTestData);
   };
 
-  const removeRow = function(rowIndex){
-    let removedRow = squareArray.splice(width * rowIndex, width)
-    removedRow.forEach(x => x.classList.remove('taken', 'tetromino'))
+  const removeRow = function (rowIndex) {
+    let removedRow = squareArray.splice(width * rowIndex, width);
+    removedRow.forEach((x) => x.classList.remove("taken", "tetromino"));
     console.log(removedRow);
     console.log(squareArray);
     squareArray = removedRow.concat(squareArray);
-    squareArray.forEach(item => grid.appendChild(item))
+    squareArray.forEach((item) => grid.appendChild(item));
     console.log(squareArray);
-  }
-  
+  };
+
   const checkRemoveRows = function () {
-    let rowIndexes = [...Array(20).keys()]
+    let rowIndexes = [...Array(20).keys()];
     console.log(rowIndexes);
-    rowIndexes.forEach(rowIndex => {
+    rowIndexes.forEach((rowIndex) => {
       let row = squareArray.slice(width * rowIndex, width * (rowIndex + 1));
-      if(row.every(divItem => divItem.classList.contains('taken'))){
-        removeRow(rowIndex)
+      if (row.every((divItem) => divItem.classList.contains("taken"))) {
+        removeRow(rowIndex);
       }
-    })
+    });
     // let lastRow = squareArray.slice(width * 19, width * 20);
     // if(lastRow.every(x => x.classList.contains('taken'))){
     //   let removedRow = squareArray.splice(width * 19, width)
@@ -201,12 +201,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const startPauseButtonHandler = function () {
     if (timerId) {
-      document.removeEventListener('keydown', keyboardKeyHandler);
+      document.removeEventListener("keydown", keyboardKeyHandler);
       clearInterval(timerId);
       timerId = null;
     } else {
       timerId = setInterval(moveDown, 1000);
-      document.addEventListener('keydown', keyboardKeyHandler);
+      document.addEventListener("keydown", keyboardKeyHandler);
     }
   };
 
