@@ -1,9 +1,13 @@
+.container {
+  display: flex;
+}
+
 .grid {
   width: 200px;
   height: 400px;
   display: flex;
   flex-wrap: wrap;
-  background-color: yellow;
+  background-color: rgba(255, 238, 0, 0.938);
 }
 
 .grid div {
@@ -11,6 +15,23 @@
     width: 18px;
     margin: 1px;
 }
+
+.mini-grid {
+  margin-left: 20px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(255, 238, 0, 0.938);
+}
+
+.mini-grid div {
+    height: 18px;
+    width: 18px;
+    margin: 1px;
+}
+
+
 
 .tetromino {
   background-color: rgb(209, 0, 228);
